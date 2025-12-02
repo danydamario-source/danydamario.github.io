@@ -1,121 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mochamad Aufa Dany Damario | Naval Architecture Portfolio</title>
 
-    <div className="min-h-screen w-full bg-gradient-to-b from-blue-900 to-black text-white flex flex-col items-center px-6 py-16 space-y-20">
-      {/* HEADER */}
-      <motion.div
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="text-center max-w-3xl"
-      >
-        <h1 className="text-5xl font-extrabold mb-4 tracking-wide text-blue-300 drop-shadow-xl">
-          Mochamad Aufa Dany Damario
-        </h1>
-        <p className="text-xl font-light text-blue-100">
-          Naval Architecture & Marine Engineering Student
-        </p>
-        <p className="mt-2 text-blue-200 italic">
-          "The future of maritime operations belongs to those who don’t just
-          navigate the sea—but reimagine how the sea is navigated."
-        </p>
-      </motion.div>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #081521;
+            color: #e6f2ff;
+        }
 
-      {/* TABS */}
-      <Tabs />
+        /* NAVIGATION */
+        nav {
+            background-color: #0c2034;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-      {/* CONTACT */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        className="mt-20 text-center space-y-3"
-      >
-        <h2 className="text-3xl font-bold text-blue-300 drop-shadow-lg">Contact</h2>
-        <p>Email: <span className="text-blue-200">damariodani3@gmail.com</span></p>
-        <p>Phone: <span className="text-blue-200">+628113218873</span></p>
-        <a
-          href="https://www.linkedin.com/in/mochaufadanydamario/"
-          target="_blank"
-          className="text-blue-400 underline hover:text-blue-300 transition"
-        >
-          LinkedIn
-        </a>
-      </motion.div>
+        nav a {
+            color: #66caff;
+            margin-left: 18px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* HERO */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(to bottom, #0c2034, #081521);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin: 0;
+            color: #66caff;
+            font-weight: 700;
+        }
+
+        .hero p {
+            margin-top: 10px;
+            font-size: 20px;
+            opacity: 0.8;
+        }
+
+        .waves {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 120px;
+            background: url('https://i.imgur.com/9D3Z4kR.png');
+            background-size: 1000px 120px;
+            animation: wave 10s infinite linear;
+        }
+
+        @keyframes wave {
+            from { background-position-x: 0; }
+            to { background-position-x: 1000px; }
+        }
+
+        .section {
+            padding: 60px 20px;
+            max-width: 950px;
+            margin: auto;
+        }
+
+        .section h2 {
+            color: #66caff;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .card {
+            background-color: #0f2a40;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #66caff;
+            margin-bottom: 20px;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            background-color: #12344d;
+            transform: translateY(-4px);
+        }
+
+        .exp-link {
+            color: #66caff;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            background-color: #0f2a40;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            opacity: 0.6;
+            margin-top: 50px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <div style="color:#66caff; font-weight:700; font-size:18px;">Dany Damario</div>
+    <div>
+        <a href="#about">About</a>
+        <a href="#exp">Experience</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
     </div>
-  );
-}
+</nav>
 
-// -------------------------------------
-// TABS COMPONENT
-// -------------------------------------
-function Tabs() {
-  const tabs = [
-    {
-      title: "About Me",
-      content: (
-        <p className="leading-relaxed text-blue-100 text-lg">
-          I’m Moch. Aufa Dany Damario, an undergraduate student of Naval
-          Architecture & Marine Engineering at Universitas Indonesia, proudly
-          awarded the prestigious TELADAN Scholarship by Tanoto Foundation.
-          I’m passionate about shaping the future of the maritime world—through
-          innovation, efficient operations, and solid teamwork. I believe
-          engineering is not just about calculations and structures, but about
-          solving real-world problems that impact millions.
-        </p>
-      ),
-    },
-    {
-      title: "Experience",
-      content: (
-        <ul className="list-disc pl-5 text-blue-100 space-y-2 text-lg">
-          <li>Project Manager — Tanoto Scholars Association</li>
-          <li>OceanX Young Explorer Program Batch VII</li>
-          <li>AUN x UGM Summer Camp 2025</li>
-        </ul>
-      ),
-    },
-    {
-      title: "Vision",
-      content: (
-        <p className="leading-relaxed text-blue-100 text-lg">
-          I aim to innovate and modernize maritime operations with sustainable,
-          efficient, and forward-thinking engineering approaches—building a
-          future where the ocean becomes a smarter, safer, and more optimized
-          environment for global progress.
-        </p>
-      ),
-    },
-  ];
+<!-- HERO -->
+<div class="hero">
+    <h1>Mochamad Aufa Dany Damario</h1>
+    <p>Naval Architecture & Marine Engineering | TELADAN 2025</p>
+    <p>Ocean Exploration • Maritime Operations • Offshore Innovation</p>
+    <div class="waves"></div>
+</div>
 
-  const [active, setActive] = useState(0);
-
-  return (
-    <div className="w-full max-w-4xl flex flex-col items-center">
-      {/* Tab Buttons */}
-      <div className="flex justify-center space-x-4 mb-8">
-        {tabs.map((tab, i) => (
-          <button
-            key={i}
-            onClick={() => setActive(i)}
-            className={`px-6 py-3 rounded-xl font-semibold transition shadow-lg backdrop-blur
-              ${active === i ? "bg-blue-600 text-white scale-105" : "bg-blue-300 text-black hover:scale-105"}
-            `}
-          >
-            {tab.title}
-          </button>
-        ))}
-      </div>
-
-      {/* Content */}
-      <motion.div
-        key={active}
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.4 }}
-        className="bg-blue-950/40 p-10 rounded-full shadow-2xl border border-blue-700 text-center max-w-2xl mx-auto"
-      >
-        {tabs[active].content}
-      </motion.div>
+<!-- ABOUT -->
+<div class="section" id="about">
+    <h2>About Me</h2>
+    <div class="card">
+        <p>I am a Naval Architecture & Marine Engineering student passionate about 
+        ocean exploration, offshore systems, ship design, and maritime innovation.</p>
+        <p>I aim to contribute to global ocean research and sustainable marine technology through
+        engineering, storytelling, and field experience.</p>
     </div>
-  );
-}
+</div>
 
+<!-- EXPERIENCE -->
+<div class="section" id="exp">
+    <h2>Experiences</h2>
+
+    <a class="exp-link" href="oceanx.html">
+        <div class="card">
+            <h3>🌊 OceanX Young Explorer Program → Click to view details</h3>
+        </div>
+    </a>
+
+    <a class="exp-link" href="tsa.html">
+        <div class="card">
+            <h3>📌 Project Manager — TSA UI → Click to view details</h3>
+        </div>
+    </a>
+
+    <a class="exp-link" href="aun.html">
+        <div class="card">
+            <h3>🌍 AUN x UGM Summer Camp → Click to view details</h3>
+        </div>
+    </a>
+</div>
+
+<!-- PORTFOLIO -->
+<div class="section" id="portfolio">
+    <h2>Portfolio</h2>
+
+    <div class="portfolio-grid">
+        <div class="portfolio-item">Ship Design Placeholder</div>
+        <div class="portfolio-item">OceanX Gallery Placeholder</div>
+        <div class="portfolio-item">Research & Analysis Placeholder</div>
+    </div>
+</div>
+
+<!-- CONTACT -->
+<div class="section" id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+        <p>Email: <a href="mailto:damariodani3@gmail.com">damariodani3@gmail.com</a></p>
+        <p>Phone: <a href="https://wa.me/628113218873" target="_blank">+62 811 3218 873</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/mochaufadanydamario" target="_blank">
+            linkedin.com/in/mochaufadanydamario</a></p>
+    </div>
+</div>
+
+<footer>
+    © 2025 Mochamad Aufa Dany Damario — Maritime Portfolio Website
+</footer>
+
+</body>
+</html>
