@@ -13,7 +13,30 @@
             color: #e6f2ff;
         }
 
-        /* HERO SECTION */
+        /* NAVIGATION */
+        nav {
+            background-color: #0c2034;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #66caff;
+            margin-left: 18px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* HERO */
         .hero {
             height: 70vh;
             background: linear-gradient(to bottom, #0c2034, #081521);
@@ -38,7 +61,6 @@
             opacity: 0.8;
         }
 
-        /* WAVES */
         .waves {
             position: absolute;
             bottom: 0;
@@ -54,7 +76,6 @@
             to { background-position-x: 1000px; }
         }
 
-        /* SECTION */
         .section {
             padding: 60px 20px;
             max-width: 950px;
@@ -67,7 +88,6 @@
             font-size: 28px;
         }
 
-        /* CARD */
         .card {
             background-color: #0f2a40;
             padding: 20px;
@@ -82,40 +102,59 @@
             transform: translateY(-4px);
         }
 
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 30px;
-            margin-top: 40px;
-            opacity: 0.6;
-            font-size: 14px;
-        }
-
-        /* LINKS */
-        a {
+        .exp-link {
             color: #66caff;
+            font-weight: bold;
+            cursor: pointer;
             text-decoration: none;
         }
 
-        a:hover {
-            text-decoration: underline;
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
+
+        .portfolio-item {
+            background-color: #0f2a40;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            opacity: 0.6;
+            margin-top: 50px;
+        }
+
     </style>
 </head>
 
 <body>
+
+<!-- NAVIGATION -->
+<nav>
+    <div style="color:#66caff; font-weight:700; font-size:18px;">Dany Damario</div>
+    <div>
+        <a href="#about">About</a>
+        <a href="#exp">Experience</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
 
 <!-- HERO -->
 <div class="hero">
     <h1>Mochamad Aufa Dany Damario</h1>
     <p>Naval Architecture & Marine Engineering | TELADAN 2025</p>
     <p>Ocean Exploration • Maritime Operations • Offshore Innovation</p>
-
     <div class="waves"></div>
 </div>
 
 <!-- ABOUT -->
-<div class="section">
+<div class="section" id="about">
     <h2>About Me</h2>
     <div class="card">
         <p>I am a Naval Architecture & Marine Engineering student passionate about 
@@ -126,45 +165,47 @@
 </div>
 
 <!-- EXPERIENCE -->
-<div class="section">
+<div class="section" id="exp">
     <h2>Experiences</h2>
 
-    <div class="card">
-        <h3>🌊 OceanX Young Explorer Program</h3>
-        <p>Selected for a global ocean exploration experience involving marine science, 
-        ship operations, expedition workflow, and ocean storytelling training.</p>
-    </div>
+    <a class="exp-link" href="oceanx.html">
+        <div class="card">
+            <h3>🌊 OceanX Young Explorer Program → Click to view details</h3>
+        </div>
+    </a>
 
-    <div class="card">
-        <h3>📌 Project Manager — TSA UI</h3>
-        <p>Led planning, risk management, and on-ground execution of campus operations. 
-        Managed teams, logistics, and operational flow with a maritime-style leadership mindset.</p>
-    </div>
+    <a class="exp-link" href="tsa.html">
+        <div class="card">
+            <h3>📌 Project Manager — TSA UI → Click to view details</h3>
+        </div>
+    </a>
 
-    <div class="card">
-        <h3>🌍 AUN x UGM Summer Camp</h3>
-        <p>Participated in an international academic and leadership camp focusing on
-        sustainability, ASEAN collaboration, and cross-cultural innovation.</p>
-    </div>
+    <a class="exp-link" href="aun.html">
+        <div class="card">
+            <h3>🌍 AUN x UGM Summer Camp → Click to view details</h3>
+        </div>
+    </a>
 </div>
 
 <!-- PORTFOLIO -->
-<div class="section">
+<div class="section" id="portfolio">
     <h2>Portfolio</h2>
-    <div class="card">
-        <p>Coming soon: ship design works, maritime ops analysis, OceanX documentation,
-        engineering drawings, and future offshore research projects.</p>
+
+    <div class="portfolio-grid">
+        <div class="portfolio-item">Ship Design Placeholder</div>
+        <div class="portfolio-item">OceanX Gallery Placeholder</div>
+        <div class="portfolio-item">Research & Analysis Placeholder</div>
     </div>
 </div>
 
 <!-- CONTACT -->
-<div class="section">
+<div class="section" id="contact">
     <h2>Contact</h2>
     <div class="card">
-        <p>Email: <a href="mailto:aufadany@example.com">aufadany@example.com</a></p>
-        <p>LinkedIn: <a href="#" target="_blank">Your LinkedIn Link</a></p>
-        <p>GitHub: <a href="https://github.com/danydamario-source" target="_blank">
-            github.com/danydamario-source</a></p>
+        <p>Email: <a href="mailto:damariodani3@gmail.com">damariodani3@gmail.com</a></p>
+        <p>Phone: <a href="https://wa.me/628113218873" target="_blank">+62 811 3218 873</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/mochaufadanydamario" target="_blank">
+            linkedin.com/in/mochaufadanydamario</a></p>
     </div>
 </div>
 
