@@ -1,142 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mochamad Aufa Dany Damario | Naval Architecture Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dany Damario | Naval Architecture Portfolio</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: "Segoe UI", Arial, sans-serif;
-            background-color: #081521;
-            color: #e6f2ff;
-        }
+<style>
+    body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background-color: #081521;
+        color: #e6f2ff;
+        scroll-behavior: smooth;
+    }
 
-        /* NAVIGATION */
-        nav {
-            background-color: #0c2034;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+    /* NAVBAR */
+    nav {
+        background-color: #0c2034;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
 
-        nav a {
-            color: #66caff;
-            margin-left: 18px;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
-        }
+    nav a {
+        color: #66caff;
+        margin-left: 18px;
+        text-decoration: none;
+        font-weight: 500;
+    }
 
-        nav a:hover {
-            text-decoration: underline;
-        }
+    nav a:hover {
+        text-decoration: underline;
+    }
 
-        /* HERO */
-        .hero {
-            height: 70vh;
-            background: linear-gradient(to bottom, #0c2034, #081521);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-        }
+    /* HERO */
+    .hero {
+        height: 70vh;
+        background: linear-gradient(to bottom, #0c2034, #081521);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: relative;
+    }
 
-        .hero h1 {
-            font-size: 50px;
-            margin: 0;
-            color: #66caff;
-            font-weight: 700;
-        }
+    .hero h1 {
+        font-size: 48px;
+        margin: 0;
+        color: #66caff;
+    }
 
-        .hero p {
-            margin-top: 10px;
-            font-size: 20px;
-            opacity: 0.8;
-        }
+    .hero p {
+        margin-top: 8px;
+        font-size: 19px;
+        opacity: 0.8;
+    }
 
-        .waves {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 120px;
-            background: url('https://i.imgur.com/9D3Z4kR.png');
-            background-size: 1000px 120px;
-            animation: wave 10s infinite linear;
-        }
+    .waves {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 120px;
+        background: url('https://i.imgur.com/9D3Z4kR.png');
+        background-size: 1000px 120px;
+        animation: wave 10s infinite linear;
+    }
 
-        @keyframes wave {
-            from { background-position-x: 0; }
-            to { background-position-x: 1000px; }
-        }
+    @keyframes wave {
+        from { background-position-x: 0; }
+        to { background-position-x: 1000px; }
+    }
 
-        .section {
-            padding: 60px 20px;
-            max-width: 950px;
-            margin: auto;
-        }
+    .section {
+        padding: 60px 20px;
+        max-width: 950px;
+        margin: auto;
+    }
 
-        .section h2 {
-            color: #66caff;
-            margin-bottom: 20px;
-            font-size: 28px;
-        }
+    .section h2 {
+        color: #66caff;
+        margin-bottom: 20px;
+    }
 
-        .card {
-            background-color: #0f2a40;
-            padding: 20px;
-            border-radius: 15px;
-            border-left: 4px solid #66caff;
-            margin-bottom: 20px;
-            transition: 0.2s;
-        }
+    .card {
+        background: #0f2a40;
+        padding: 20px;
+        border-radius: 15px;
+        border-left: 4px solid #66caff;
+        cursor: pointer;
+        margin-bottom: 20px;
+        transition: 0.2s;
+    }
 
-        .card:hover {
-            background-color: #12344d;
-            transform: translateY(-4px);
-        }
+    .card:hover {
+        background: #12344d;
+        transform: translateY(-4px);
+    }
 
-        .exp-link {
-            color: #66caff;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-        }
+    /* MODAL (Zoom Experience) */
+    .modal-bg {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.7);
+        backdrop-filter: blur(4px);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        animation: fadeIn 0.3s ease;
+    }
 
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
 
-        .portfolio-item {
-            background-color: #0f2a40;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-        }
+    .modal-box {
+        background: #0f2a40;
+        width: 80%;
+        max-width: 700px;
+        padding: 30px;
+        border-radius: 18px;
+        border: 2px solid #66caff;
+        animation: zoom 0.3s ease;
+    }
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            opacity: 0.6;
-            margin-top: 50px;
-        }
+    @keyframes zoom {
+        from { transform: scale(0.8); }
+        to { transform: scale(1); }
+    }
 
-    </style>
+    .close-btn {
+        background: #66caff;
+        color: #0c2034;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    /* PORTFOLIO */
+    .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .portfolio-item {
+        background: #0f2a40;
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    footer {
+        text-align: center;
+        padding: 30px;
+        opacity: 0.6;
+    }
+</style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
+<!-- NAV -->
 <nav>
-    <div style="color:#66caff; font-weight:700; font-size:18px;">Dany Damario</div>
+    <div style="color:#66caff; font-weight:700;">Dany Damario</div>
     <div>
         <a href="#about">About</a>
         <a href="#exp">Experience</a>
@@ -148,19 +184,17 @@
 <!-- HERO -->
 <div class="hero">
     <h1>Mochamad Aufa Dany Damario</h1>
-    <p>Naval Architecture & Marine Engineering | Future Maritime Leader</p>
-    <p>Ocean Exploration • Maritime Operations • Maritime Innovation</p>
+    <p>Naval Architecture & Marine Engineering</p>
+    <p>Ocean Exploration • Maritime Operations • Ship Innovation</p>
     <div class="waves"></div>
 </div>
 
 <!-- ABOUT -->
 <div class="section" id="about">
     <h2>About Me</h2>
-    <div class="card">
-        <p>I am a Naval Architecture & Marine Engineering student passionate about 
-        ocean exploration, offshore systems, ship design, and maritime innovation.</p>
-        <p>I aim to contribute to global ocean research and sustainable marine technology through
-        engineering, storytelling, and field experience.</p>
+    <div class="card" style="cursor:default;">
+        <p>I am a Naval Architecture & Marine Engineering student passionate about ocean exploration, offshore systems, ship design, and maritime innovation.</p>
+        <p>I aim to contribute to global ocean research and sustainable maritime engineering.</p>
     </div>
 </div>
 
@@ -168,35 +202,56 @@
 <div class="section" id="exp">
     <h2>Experiences</h2>
 
-    <a class="exp-link" href="oceanx.html">
-        <div class="card">
-            <h3>🌊 OceanX Young Explorer Program </h3>
-        </div>
-    </a>
+    <div class="card" onclick="openModal('oceanx')">
+        <h3>🌊 OceanX Young Explorer Program</h3>
+    </div>
 
-    <a class="exp-link" href="tsa.html">
-        <div class="card">
-            <h3>📌 Project Manager — TSA UI </h3>
-        </div>
-    </a>
+    <div class="card" onclick="openModal('tsa')">
+        <h3>📌 Project Manager — TSA UI</h3>
+    </div>
 
-    <a class="exp-link" href="aun.html">
-        <div class="card">
-            <h3>🌍 AUN x UGM Summer Camp </h3>
-        </div>
-    </a>
-</div>
-
-<!-- PORTFOLIO -->
-<div class="section" id="portfolio">
-    <h2>Portfolio</h2>
-
-    <div class="portfolio-grid">
-        <div class="portfolio-item">Ship Design Placeholder</div>
-        <div class="portfolio-item">OceanX Gallery Placeholder</div>
-        <div class="portfolio-item">Research & Analysis Placeholder</div>
+    <div class="card" onclick="openModal('aun')">
+        <h3>🌍 AUN x UGM Summer Camp</h3>
     </div>
 </div>
+
+<!-- MODAL: OceanX -->
+<div class="modal-bg" id="modal-oceanx">
+    <div class="modal-box">
+        <h2>🌊 OceanX Young Explorer Program</h2>
+        <p>I joined the OceanX Young Explorer Program, gaining hands-on exposure to marine science, underwater cinematography, ocean storytelling, and offshore operations.</p>
+        <p>I learned how interdisciplinary work between engineers, scientists, filmmakers, and explorers helps advance ocean research globally.</p>
+        <button class="close-btn" onclick="closeModal('oceanx')">Close</button>
+    </div>
+</div>
+
+<!-- MODAL: TSA -->
+<div class="modal-bg" id="modal-tsa">
+    <div class="modal-box">
+        <h2>📌 Project Manager — TSA UI</h2>
+        <p>As Project Manager at TSA UI, I led end-to-end project planning, execution, budgeting, risk management, and team coordination.</p>
+        <p>I ensured project outcomes were delivered on time and aligned with organizational goals.</p>
+        <button class="close-btn" onclick="closeModal('tsa')">Close</button>
+    </div>
+</div>
+
+<!-- MODAL: AUN -->
+<div class="modal-bg" id="modal-aun">
+    <div class="modal-box">
+        <h2>🌍 AUN x UGM Summer Camp</h2>
+        <p>I participated in the AUN x UGM Summer Camp, collaborating with ASEAN students on sustainability, culture, maritime issues, and leadership development.</p>
+        <button class="close-btn" onclick="closeModal('aun')">Close</button>
+    </div>
+</div>
+
+<script>
+function openModal(name) {
+    document.getElementById("modal-" + name).style.display = "flex";
+}
+function closeModal(name) {
+    document.getElementById("modal-" + name).style.display = "none";
+}
+</script>
 
 <!-- CONTACT -->
 <div class="section" id="contact">
@@ -204,14 +259,10 @@
     <div class="card">
         <p>Email: <a href="mailto:damariodani3@gmail.com">damariodani3@gmail.com</a></p>
         <p>Phone: <a href="https://wa.me/628113218873" target="_blank">+62 811 3218 873</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/mochaufadanydamario" target="_blank">
-            linkedin.com/in/mochaufadanydamario</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/mochaufadanydamario" target="_blank">linkedin.com/in/mochaufadanydamario</a></p>
     </div>
 </div>
 
-<footer>
-    © 2025 Mochamad Aufa Dany Damario — Maritime Portfolio Website
-</footer>
-
+<footer>© 2025 Mochamad Aufa Dany Damario — Maritime Portfolio</footer>
 </body>
 </html>
